@@ -276,7 +276,8 @@ $("#attack").on("click", function() {
         // Check if the user has won the game
         if (enemiesDefeated === 3) {
           gameOver = true;
-          $("#game-message").html("<p>You have won the game!!!</p><p>Play again?</p>");
+          $("#game-message").html("<p>You Win!!!</p><p>Play again?</p>");
+          alert("Winner");
           $("#restart").show();
         }
       }
