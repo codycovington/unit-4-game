@@ -20,28 +20,28 @@ var defenderSelected = false;
 // Define character objects
 // -----------------------------------------
 var obiwan = {
-    name: "obiwan",
+    name: "ObiWan",
     hp: 100,
     baseAttack: 20,
     attack: 20
 };
 
 var lukeskywalker = {
-    name: "luke skywalker",
+    name: "Luke Skywalker",
     hp: 100,
     baseAttack: 20,
     attack: 20
 };
 
 var hansolo = {
-    name: "han solo",
+    name: "Han Solo",
     hp: 100,
     baseAttack: 20,
     attack: 20
 };
 
 var kyloren = {
-    name: "kylo ren",
+    name: "Kylo Ren",
     hp: 100,
     baseAttack: 20,
     attack: 20
@@ -55,7 +55,7 @@ function initializeCharacter(chosenCharacter) {
     character.attack = chosenCharacter.attack;
   }
   
-  // This function will initialize the enemy's value from the global object variables defined above
+  
   function initializeDefender(chosenDefender) {
     defender.name = chosenDefender.name;
     defender.hp = chosenDefender.hp;
@@ -86,7 +86,7 @@ function resetGame() {
     var available = $(".available-character").show();
     $("#characters_start_area").html(available);
   
-    $("#game-message").empty();
+    $("#game_message").empty();
     $("#restart").hide();
   
     characterSelected = false;
@@ -110,7 +110,7 @@ $(document).ready(function() {
   
       // User is choosing the character
       if(characterSelected == false) {
-        $("#game-message").empty();
+        $("#game_message").empty();
   
         // Set the user's character
         initializeCharacter(obiwan);
@@ -125,7 +125,7 @@ $(document).ready(function() {
       } else if ((characterSelected == true) && (defenderSelected == false)) {
         // User is choosing the defender
         if($("#obiwan_area").hasClass("enemy-character")) {
-          $("#game-message").empty();
+          $("#game_message").empty();
   
           // Set the user's enemy
           initializeDefender(obiwan);
@@ -145,7 +145,7 @@ $("#luke_area").on("click", function () {
 
     // User is choosing the character
     if(characterSelected == false) {
-      $("#game-message").empty();
+      $("#game_message").empty();
 
       // Set the user's character
       initializeCharacter(lukeskywalker);
@@ -160,7 +160,7 @@ $("#luke_area").on("click", function () {
     } else if ((characterSelected == true) && (defenderSelected == false)) {
       // User is choosing the defender
       if($("#luke_area").hasClass("enemy-character")) {
-        $("#game-message").empty();
+        $("#game_message").empty();
 
         // Set the user's enemy
         initializeDefender(lukeskywalker);
@@ -178,7 +178,7 @@ $("#luke_area").on("click", function () {
 
     // User is choosing the character
     if(characterSelected == false) {
-      $("#game-message").empty();
+      $("#game_message").empty();
 
       // Set the user's character
       initializeCharacter(hansolo);
@@ -193,7 +193,7 @@ $("#luke_area").on("click", function () {
     } else if ((characterSelected == true) && (defenderSelected == false)) {
       // User is choosing the defender
       if($("#hansolo_area").hasClass("enemy-character")) {
-        $("#game-message").empty();
+        $("#game_message").empty();
 
         // Set the user's enemy
         initializeDefender(hansolo);
@@ -211,7 +211,7 @@ $("#luke_area").on("click", function () {
 
     // User is choosing the character
     if(characterSelected == false) {
-      $("#game-message").empty();
+      $("#game_message").empty();
 
       // Set the user's character
       initializeCharacter(kyloren);
@@ -226,7 +226,7 @@ $("#luke_area").on("click", function () {
     } else if ((characterSelected == true) && (defenderSelected == false)) {
       // User is choosing the defender
       if($("#kyloren_area").hasClass("enemy-character")) {
-        $("#game-message").empty();
+        $("#game_message").empty();
 
         // Set the user's enemy
         initializeDefender(kyloren);
@@ -248,7 +248,7 @@ $("#attack").on("click", function() {
       // User attacks the defender and decreases the defender's hp points
       defender.hp = defender.hp - character.attack;
       $(".defender-character").children(".hp").html(defender.hp);
-      $("#game-message").html("<p>You attacked " + defender.name + " for " + character.attack + " damage.<p>");
+      $("#game_message").html("<p>You attacked " + defender.name + " for " + character.attack + " damage.<p>");
 
       // User's attack power increases
       character.attack = character.attack + character.baseAttack;
@@ -260,31 +260,31 @@ $("#attack").on("click", function() {
 
         // Check if the user survives the attack
         if (character.hp > 0) {
-          $("#game-message").append("<p>" + defender.name + " attacked you back for " + defender.baseAttack + " damage.</p>");
+          $("#game_message").append("<p>" + defender.name + " attacked you back for " + defender.baseAttack + " damage.</p>");
         } else {
           gameOver = true;
-          $("#game-message").html("<p>You were defeated... womp womp...</p><p>Play again?</p>");
+          $("#game_message").html("<p>You were defeated... womp womp...</p><p>Play again?</p>");
           $("#restart").show();
         }
       } else {
         // Defender is defeated
         enemiesDefeated++;
         defenderSelected = false;
-        $("#game-message").html("<p>You have defeated " + defender.name + ". Choose another enemy.</p>");
+        $("#game_message").html("<p>You have defeated " + defender.name + ". Choose another enemy.</p>");
         $(".defender-character").hide();
 
         // Check if the user has won the game
         if (enemiesDefeated === 3) {
           gameOver = true;
-          $("#game-message").html("<p>You Win!!!</p><p>Play again?</p>");
+          $("#game_message").html("<p>You Win!!!</p><p>Play again?</p>");
           alert("Winner");
           $("#restart").show();
         }
       }
     } else if (!characterSelected && !gameOver) {
-      $("#game-message").html("<p>You must first select your game character.</p>");
+      $("#game_message").html("<p>You must first select your game character.</p>");
     } else if (!defenderSelected && !gameOver) {
-      $("#game-message").html("<p>You must choose an enemy to fight.</p>");
+      $("#game_message").html("<p>You must choose an enemy to fight.</p>");
     }
 
     

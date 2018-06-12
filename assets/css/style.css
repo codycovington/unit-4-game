@@ -7,8 +7,8 @@ h2 {
 }
 
 .image {
-    width: 100px;
-    height: 75px;
+    width: 175px;
+    height: 100px;
     
 }
 
@@ -22,7 +22,7 @@ h2 {
 }
 
 
-#game-message {
+#game_message {
     color: red;
     background-color: white;
 }
@@ -30,7 +30,7 @@ h2 {
 
 #title_div {
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: white;
     color: black;
     text-align: center;
@@ -45,8 +45,8 @@ h2 {
 
 
 #obiwan_area {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 225px;
     margin-left: 5px;
     margin-right: 5px;
     background-color: white;
@@ -56,8 +56,8 @@ h2 {
 }
 
 #luke_area {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 225px;
     margin-left: 5px;
     margin-right: 5px;
     background-color: white;
@@ -66,8 +66,8 @@ h2 {
 }
 
 #hansolo_area {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 225px;
     margin-left: 5px;
     margin-right: 5px;
     background-color: white;
@@ -76,8 +76,8 @@ h2 {
 }
 
 #kyloren_area {
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 225px;
     margin-left: 5px;
     margin-right: 5px;
     background-color: white;
@@ -99,6 +99,6 @@ h2 {
 
 }
 
-#fight-section {
+#fight_area {
     clear: left;
 }
